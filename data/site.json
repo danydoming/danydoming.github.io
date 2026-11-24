@@ -1,0 +1,1111 @@
+{
+ "version": 1,
+ "home": {
+  "eyebrow": "Aerospace & Mechanical Engineering · Integration & Test · Systems & Project Engineering",
+  "nameArt": {
+   "src": "img/name-landsat.jpg",
+   "alt": "The name DANIELA spelled with seven satellite images of Earth: lakes, rivers, coastlines and roads that happen to form each letter",
+   "caption": "Name visualization created using NASA's Your Name in Landsat interactive, featuring satellite imagery of Earth's natural landscapes."
+  },
+  "name": "Daniela Dominguez",
+  "role": "**Dual B.S. in Aerospace and Mechanical Engineering, New Mexico State University, Dec 2027.** Passionate about systems integration, R&D, and experimental testing.",
+  "chips": [
+   "Las Cruces, NM",
+   "Open to Summer 2027 internships"
+  ],
+  "chipNotes": [],
+  "stats": [],
+  "selectedTitle": "Selected work",
+  "moreTitle": "More work",
+  "resume": {
+   "href": "files/DanielaDominguez_Resume.pdf",
+   "label": "Résumé (PDF)"
+  }
+ },
+ "projects": [
+  {
+   "id": "flight-vehicle",
+   "group": "selected",
+   "navLabel": "Flight vehicle",
+   "card": {
+    "title": "Flight vehicle",
+    "summary": "The flight computer for a nose cone dropped from a balloon at 20,000 ft.",
+    "image": {
+     "src": "img/cone-drone-lab.jpg",
+     "alt": "Scaled nose cone hanging under a heavy-lift drone in the lab",
+     "pos": "center 62%"
+    }
+   },
+   "page": {
+    "tone": "dark",
+    "eyebrow": "01 · Flight vehicle",
+    "kicker": "Avionics · Flight test · Structural dynamics",
+    "title": "Balloon-Dropped Flight Test Vehicle",
+    "tagline": "**Dropped from 20,000 ft. Logging every shake.** An instrumented nose cone that measures its own structural vibration as it falls. I worked on the deployment mechanism and data acquisition for the 2,000 ft Phase S1 drop, then built the Teensy 4.1 flight computer that logged the 20,000 ft balloon drop and fired the parachute.",
+    "blocks": [
+     {
+      "type": "figure",
+      "variant": "lead",
+      "kind": "video",
+      "src": "https://res.cloudinary.com/vtvazkbc/video/upload/q_auto/v1795493657/cone-s1-drop.mp4",
+      "alt": "Video of the Phase S1 scaled cone drone drop near Las Cruces, 3 Dec 2025",
+      "caption": "Phase S1: the scaled cone's drone drop near Las Cruces, 3 Dec 2025."
+     },
+     {
+      "type": "story",
+      "specTitle": "Spec sheet",
+      "sections": [
+       {
+        "heading": "The mission",
+        "text": "HAWC, the High Altitude Weather Cone, is a research project in NMSU's Environmental Testing of Structures Laboratory with Los Alamos National Laboratory and NMSU's Physical Science Laboratory (PSL). The goal is to drop an instrumented 6061 aluminum nose cone from a balloon at 100,000 ft and record how its internal structure vibrates as it falls through transonic speeds.",
+        "figures": []
+       },
+       {
+        "heading": "Where I came in",
+        "html": "<div class='compare'><div class='card'><h5>Before me: 2022 to 2025</h5><p>Earlier team members designed and machined the aluminum cone, ran the CFD and thermal qualification, and flew the first drone drops and the first 100,000 ft attempt.</p></div><div class='card mine'><h5>My part: Phases S1 and S2</h5><p>On the Phase S1 drone drop I worked on part of the deployment mechanism and the data acquisition. For Phase S2, a 20,000 ft balloon drop, I built the flight computer that logged the flight and released the parachute.</p></div></div>",
+        "figures": [
+         {
+          "src": "img/cone-drone-lab.jpg",
+          "alt": "",
+          "caption": "Design review with PSL (Physical Science Laboratory) for system validation."
+         }
+        ]
+       },
+       {
+        "heading": "Flight computer",
+        "text": "- Teensy 4.1 running embedded C++, logging at 50 Hz.\n- Two sources of altitude, GPS and a barometer, plus an IMU and a separate 20 g accelerometer.\n- Decides on its own when to deploy, then fires a burn-wire that releases the parachute.\n- A status screen for ground checks shows the flight state, GPS fix, both altitudes, every acceleration axis, the reed switch, the countdown and the burn-wire.",
+        "figures": [
+         {
+          "src": "img/fc-display.jpg",
+          "alt": "Small colour display wired to a Teensy, showing STATE: ARMED, GPS fix and altitude, accelerometer readings, reed switch closed and burn wire on standby",
+          "caption": "Ground-check screen: armed, burn-wire on standby",
+          "pos": "center 62%"
+         },
+         {
+          "src": "img/fc-breadboard.jpg",
+          "alt": "Teensy 4.1 on a breadboard wired to a pressure sensor board",
+          "caption": "Bench build: Teensy 4.1 with the pressure sensor (First model).",
+          "pos": "center 55%"
+         }
+        ]
+       },
+       {
+        "heading": "What Phase S2 had to prove",
+        "text": "Phase S1 showed that the electronics were the weak point. For S2 the team wrote pass/fail criteria for every subsystem, to be checked in the lab before flight. The ones that shaped the flight computer:\n- The parachute releases within 2 seconds of the command, 10 times out of 10, including at −30 °C.\n- The burn-wire cuts only what it is meant to cut, with no damage to the paracord or canopy.\n- Telemetry runs for the whole mission plus a 30-minute margin, and a brownout can't reboot it or lose data.\n- Data is recorded continuously, with no gaps or missing timestamps, and the files open afterward.\n- GPS puts the recovery team within 10 m of the cone.",
+        "figures": [
+         {
+          "src": "img/cone-s2-profile.jpg",
+          "alt": "Flight profile diagram: balloon ascent to about 20,000 ft, test article release, free fall, parachute release near 1,000 ft, and impact points for the cone and the tow balloon",
+          "caption": "Phase S2 flight profile from the team's test plan: release near 20,000 ft, parachute at about 1,000 ft.",
+          "white": true
+         }
+        ]
+       },
+       {
+        "heading": "Test campaign",
+        "html": "<ol class='timeline'><li><span class='tl-tag'>Earlier team</span><div><h5>Aluminum cone, analysis and qualification · from 2022</h5><p>CFD of the cone's center of pressure matched NASA wind-tunnel data to within 0.9–4.5% from Mach 0.8 to 1.4. The shell survived a cold soak to −70 °C, and the parachute plate was thickened from 0.25 to 0.375 in after static testing.</p></div></li><li><span class='tl-tag fail'>Failed</span><div><h5>First 100,000 ft balloon drop</h5><p>The parachute did not deploy and telemetry cut out in free fall. The scaled cone and its data were never recovered.</p></div></li><li><span class='tl-tag'>Replan</span><div><h5>Fail fast, in four phases</h5><p>The team switched to a 3D-printed scaled cone and a stepped plan with pass/fail criteria at each step: S1 at 2,000 ft, S2 at 20,000 ft, then S3 and S4 at 100,000 ft.</p></div></li><li><span class='tl-tag partial'>Partial · I joined</span><div><h5>Phase S1 · 2,000 ft drone drop · 3 Dec 2025</h5><p>The parachute deployed and the cone was recovered 1,320 ft from release. But the electronics and data acquisition failed, and the ballast didn't lower the center of mass enough for stable flight.</p></div></li><li><span class='tl-tag pass'>Main phase</span><div><h5>Phase S2 · 20,000 ft AGL balloon drop · 2026</h5><p>My flight computer logged GPS, barometric altitude, IMU and a 20 g accelerometer at 50 Hz, and fired the burn-wire parachute release on its own. It worked on the live drop.</p></div></li><li><span class='tl-tag next'>Next</span><div><h5>Phases S3 and S4 · 100,000 ft</h5><p>Full-altitude drops of the scaled cone, then the aluminum cone with its final data acquisition system.</p></div></li></ol>",
+        "figures": []
+       }
+      ],
+      "spec": [
+       {
+        "dt": "Project",
+        "dd": "HAWC · High Altitude Weather Cone"
+       },
+       {
+        "dt": "Goal",
+        "dd": "Structural vibration during transonic descent"
+       },
+       {
+        "dt": "My phase",
+        "dd": "S1 and S2 balloon drop"
+       },
+       {
+        "dt": "Flight computer",
+        "dd": "Teensy 4.1 · embedded C++"
+       },
+       {
+        "dt": "Sensors",
+        "dd": "GPS · barometer · IMU · 20 g accelerometer"
+       },
+       {
+        "dt": "Log rate",
+        "dd": "50 Hz"
+       },
+       {
+        "dt": "Recovery",
+        "dd": "Burn-wire parachute release"
+       }
+      ]
+     },
+     {
+      "type": "gallery",
+      "cols": 3,
+      "variant": "tall",
+      "items": [
+       {
+        "kind": "img",
+        "src": "img/cone-liftoff.jpg",
+        "alt": "Drone on the desert flat with the cone hanging beneath it, ready for liftoff",
+        "caption": "Ready for the 2,000 ft lift.",
+        "pos": "center 58%"
+       },
+       {
+        "kind": "img",
+        "src": "img/cone-landed.jpg",
+        "alt": "The cone lying in red sand and brush after landing, yellow parachute still attached",
+        "caption": "Recovered, parachute still attached."
+       },
+       {
+        "kind": "img",
+        "src": "img/hawc-launch-crew.jpg",
+        "alt": "",
+        "caption": "Headsets on, vests on — tracking the cone on a HAWC launch day with the ETS Lab crew."
+       }
+      ]
+     },
+     {
+      "type": "gallery",
+      "cols": 2,
+      "items": [
+       {
+        "kind": "img",
+        "src": "img/cone-runcam.jpg",
+        "alt": "Close-up of a small action camera mounted under the drone, pointing down at the cone",
+        "caption": "Onboard camera that filmed the release",
+        "pos": "center 52%"
+       },
+       {
+        "kind": "img",
+        "src": "img/cone-cad-parts.jpg",
+        "alt": "CAD models of the scaled cone parts: tip, ballast container, mid and aft shells, and the spring-loaded parachute ejection plate",
+        "caption": "Scaled cone CAD: tip, ballast, shells and the parachute ejection mechanism",
+        "white": true,
+        "fit": "contain"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "klann-walker",
+   "group": "selected",
+   "navLabel": "Klann walker",
+   "card": {
+    "title": "Klann walker",
+    "summary": "An eight-legged walking robot driven by linkages and steered from a phone.",
+    "image": {
+     "src": "img/walker-built.jpg",
+     "alt": "The 3D-printed Klann walker robot with black legs and white gears",
+     "pos": "22% 82%"
+    }
+   },
+   "page": {
+    "tone": "light",
+    "eyebrow": "02 · Klann walker",
+    "kicker": "Machine design · Linkages · ME 326",
+    "title": "Klann Linkage Walking Robot",
+    "tagline": "**One crank. Eight legs. A full step.** An eight-legged walker for ME 326 Machine Design. Each leg is a six-link Klann mechanism, so a single rotating crank produces a full walking step. Two servos drive it, and a phone app steers it over Bluetooth.",
+    "blocks": [
+     {
+      "type": "gallery",
+      "cols": 2,
+      "items": [
+       {
+        "kind": "img",
+        "src": "img/walker-built.jpg",
+        "alt": "Team members holding the finished walker: white 3D-printed chassis and gears with black linkage legs",
+        "caption": "The finished walker: printed chassis, gear train and linkage legs",
+        "pos": "center 45%"
+       },
+       {
+        "kind": "img",
+        "src": "img/walker-team.jpg",
+        "alt": "The project team in a classroom, holding the walker",
+        "caption": "The project team with the finished robot",
+        "pos": "center 60%"
+       }
+      ]
+     },
+     {
+      "type": "story",
+      "specTitle": "",
+      "sections": [
+       {
+        "heading": "Why a Klann linkage",
+        "text": "Our first concept was a hexapod with two-link legs driven by crank-rockers and DC motors. Moving to the Klann linkage gave a longer, flatter stride from the same crank: the foot moves along the ground in a near-straight line, then lifts and swings back, with no servo per joint and no gait code. All the walking comes from link geometry.",
+        "widget": "klann"
+       },
+       {
+        "heading": "Drivetrain and machine elements",
+        "text": "- Two continuous-rotation servos, one per side, each driving a 20T pinion into a 50T driven gear (module 1.5) for a 2.5:1 reduction.\n- 3/8 in keyed 1045 steel shafts on four ball bearings, each carrying four crank hubs.\n- Cranks phased 0°, 90°, 180° and 270° on the left with a 90° offset on the right, so some feet are always on the ground.\n- PLA chassis plates (220 × 80 mm) on 35 mm standoffs, with M3 shoulder screws as pivot pins for 32 joints."
+       },
+       {
+        "heading": "Control",
+        "text": "An Arduino Uno reads one-letter commands (forward, back, pivot left, pivot right, stop) from an HC-05 Bluetooth module, sent by an Android app built in MIT App Inventor. Steering is differential: the sides run at different speeds or opposite directions. Every speed change ramps over 15 steps so the gears and linkages don't take shock loads, and a repeated command is ignored so the robot doesn't stutter.",
+        "figures": [],
+        "html": "<div class='kw' role='group' aria-label='Interactive control demo: pick a command to see how the firmware drives the servos'><style>.kw{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:'pad stage' 'flow flow' 'gauges gauges' 'note note';gap:16px 18px;padding:20px;border-radius:22px;background:var(--surface);align-items:stretch}.kw>input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}.kw-side{grid-area:pad;display:grid;gap:8px;justify-items:center;align-content:center}.kw-side small{font-size:12px;font-weight:600;color:var(--muted)}.kw-pad{display:grid;grid-template-columns:repeat(3,46px);grid-template-rows:repeat(3,46px);gap:6px}.kw-pad label{display:grid;place-items:center;border-radius:14px;background:var(--bg);border:1px solid var(--line);font:600 15px var(--body);color:var(--fg);cursor:pointer;user-select:none;transition:background .15s,color .15s,transform .1s,border-color .15s}.kw-pad label:hover{border-color:var(--accent)}.kw-pad label:active{transform:scale(.92)}.kw-pad .f{grid-area:1/2}.kw-pad .l{grid-area:2/1}.kw-pad .s{grid-area:2/2}.kw-pad .r{grid-area:2/3}.kw-pad .b{grid-area:3/2}#kw-f:checked~.kw-side .kw-pad .f,#kw-l:checked~.kw-side .kw-pad .l,#kw-s:checked~.kw-side .kw-pad .s,#kw-r:checked~.kw-side .kw-pad .r,#kw-b:checked~.kw-side .kw-pad .b{background:var(--accent);border-color:var(--accent);color:#ffffff}#kw-f:focus-visible~.kw-side .kw-pad .f,#kw-l:focus-visible~.kw-side .kw-pad .l,#kw-s:focus-visible~.kw-side .kw-pad .s,#kw-r:focus-visible~.kw-side .kw-pad .r,#kw-b:focus-visible~.kw-side .kw-pad .b{outline:2px solid var(--accent);outline-offset:3px}.kw-main{display:contents}.kw-v{display:none}#kw-f:checked~.kw-main .v-f,#kw-l:checked~.kw-main .v-l,#kw-s:checked~.kw-main .v-s,#kw-r:checked~.kw-main .v-r,#kw-b:checked~.kw-main .v-b{display:contents}.kw-stage{grid-area:stage;min-width:0;position:relative;min-height:170px;border-radius:16px;background:var(--bg);overflow:hidden;display:grid;place-items:center;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:16px 16px}.kw-bot{width:52px;height:62px;margin-top:28px}.kw-body{fill:var(--surface-2);stroke:var(--fg);stroke-width:2}.kw-nose{fill:var(--accent)}.kw-leg{fill:var(--fg);transform-box:fill-box;transform-origin:center}.kw-cap{position:absolute;left:0;right:0;top:0;padding:8px 12px;font-size:12.5px;line-height:1.35;color:var(--muted);background:color-mix(in srgb,var(--bg) 88%,transparent);z-index:1}.kw-cap b{color:var(--fg)}.kw-stage.m-fwd{animation:kw-floor-f .7s linear infinite}.kw-stage.m-bk{animation:kw-floor-b 1s linear infinite}.kw-bot.pl{animation:kw-pl 3s linear infinite}.kw-bot.pr{animation:kw-pr 3s linear infinite}.kw-bot:not(.stop) .kw-leg{animation:kw-step .5s ease-in-out infinite alternate}.kw-bot.stop{animation:kw-halt .5s ease-out}@keyframes kw-floor-f{from{background-position:0 0}to{background-position:0 16px}}@keyframes kw-floor-b{from{background-position:0 0}to{background-position:0 -16px}}@keyframes kw-pl{to{transform:rotate(-360deg)}}@keyframes kw-pr{to{transform:rotate(360deg)}}@keyframes kw-step{from{transform:translateY(-3px)}to{transform:translateY(3px)}}@keyframes kw-halt{from{transform:translateY(-8px)}}.kw-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;grid-area:flow}.kw-flow li{position:relative;display:grid;gap:3px;align-content:start;padding:10px 10px 11px;border-radius:12px;background:var(--bg);border:1px solid var(--line);animation:kw-lit .9s ease-out both}.kw-flow li b{font:600 12px var(--mono);letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.kw-flow li span{font-size:12px;line-height:1.35;color:var(--muted)}@keyframes kw-lit{0%{border-color:var(--line);box-shadow:none}35%{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}100%{border-color:var(--line);box-shadow:none}}.kw-gauges{grid-area:gauges;display:grid;gap:8px}.kw-g{display:grid;grid-template-columns:84px minmax(0,1fr) 40px;gap:10px;align-items:center;font-size:12.5px;color:var(--muted)}.kw-g b{color:var(--fg);font-variant-numeric:tabular-nums;text-align:right}.kw-track{position:relative;height:10px;border-radius:6px;background:var(--bg);border:1px solid var(--line);overflow:hidden}.kw-track:after{content:'';position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--muted)}.kw-fill{position:absolute;top:0;bottom:0;animation:kw-ramp .75s steps(15,end) .55s both}.kw-fill.pos{background:var(--accent)}.kw-fill.neg{background:var(--accent-2)}@keyframes kw-ramp{from{width:0}}.kw-note{grid-area:note;font-size:12.5px;color:var(--muted);margin:0}@media (max-width:420px){.kw{grid-template-columns:minmax(0,1fr);grid-template-areas:'pad' 'stage' 'flow' 'gauges' 'note'}.kw-flow{grid-template-columns:minmax(0,1fr)}}@media (prefers-reduced-motion:reduce){.kw *{animation:none!important}}</style><input type='radio' name='kwc' id='kw-f' checked aria-label='Forward'><input type='radio' name='kwc' id='kw-l' aria-label='Pivot left'><input type='radio' name='kwc' id='kw-s' aria-label='Stop'><input type='radio' name='kwc' id='kw-r' aria-label='Pivot right'><input type='radio' name='kwc' id='kw-b' aria-label='Back'><div class='kw-side'><small>Phone app</small><div class='kw-pad'><label for='kw-f' class='f' title='Forward'>F</label><label for='kw-l' class='l' title='Pivot left'>L</label><label for='kw-s' class='s' title='Stop'>S</label><label for='kw-r' class='r' title='Pivot right'>R</label><label for='kw-b' class='b' title='Back'>B</label></div><small>Tap a command</small></div><div class='kw-main'><div class='kw-v v-f'><div class='kw-stage m-fwd'><svg class='kw-bot fwd' viewBox='0 0 80 96' aria-hidden='true'><rect x='18' y='8' width='44' height='80' rx='10' class='kw-body'/><path d='M40 14 l8 10 h-16 z' class='kw-nose'/><rect class='kw-leg' x='8' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='8' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/></svg><p class='kw-cap'><b>Forward</b> · Both sides drive forward</p></div><ol class='kw-flow'><li style='animation-delay:0.00s'><b>HC-05 Bluetooth</b><span>receives 'F'</span></li><li style='animation-delay:0.18s'><b>handleCommand()</b><span>case 'F' → L +80, R +80</span></li><li style='animation-delay:0.36s'><b>rampBoth()</b><span>15 small steps, never a jump</span></li><li style='animation-delay:0.54s'><b>writeMicroseconds()</b><span>stop pulse +240 / +240 µs</span></li></ol><div class='kw-gauges'><div class='kw-g'><span>Left servo</span><div class='kw-track'><i class='kw-fill pos' style='left:50%;width:40.0%'></i></div><b>+80</b></div><div class='kw-g'><span>Right servo</span><div class='kw-track'><i class='kw-fill pos' style='left:50%;width:40.0%'></i></div><b>+80</b></div></div></div><div class='kw-v v-l'><div class='kw-stage m-pl'><svg class='kw-bot pl' viewBox='0 0 80 96' aria-hidden='true'><rect x='18' y='8' width='44' height='80' rx='10' class='kw-body'/><path d='M40 14 l8 10 h-16 z' class='kw-nose'/><rect class='kw-leg' x='8' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='8' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/></svg><p class='kw-cap'><b>Pivot left</b> · Sides run opposite: turns in place to the left</p></div><ol class='kw-flow'><li style='animation-delay:0.00s'><b>HC-05 Bluetooth</b><span>receives 'L'</span></li><li style='animation-delay:0.18s'><b>handleCommand()</b><span>case 'L' → L −65, R +65</span></li><li style='animation-delay:0.36s'><b>rampBoth()</b><span>15 small steps, never a jump</span></li><li style='animation-delay:0.54s'><b>writeMicroseconds()</b><span>stop pulse −195 / +195 µs</span></li></ol><div class='kw-gauges'><div class='kw-g'><span>Left servo</span><div class='kw-track'><i class='kw-fill neg' style='right:50%;width:32.5%'></i></div><b>−65</b></div><div class='kw-g'><span>Right servo</span><div class='kw-track'><i class='kw-fill pos' style='left:50%;width:32.5%'></i></div><b>+65</b></div></div></div><div class='kw-v v-s'><div class='kw-stage m-stop'><svg class='kw-bot stop' viewBox='0 0 80 96' aria-hidden='true'><rect x='18' y='8' width='44' height='80' rx='10' class='kw-body'/><path d='M40 14 l8 10 h-16 z' class='kw-nose'/><rect class='kw-leg' x='8' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='8' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/></svg><p class='kw-cap'><b>Stop</b> · Both servos ramp down to the stop pulse</p></div><ol class='kw-flow'><li style='animation-delay:0.00s'><b>HC-05 Bluetooth</b><span>receives 'S'</span></li><li style='animation-delay:0.18s'><b>handleCommand()</b><span>case 'S' → L 0, R 0</span></li><li style='animation-delay:0.36s'><b>rampBoth()</b><span>15 small steps, never a jump</span></li><li style='animation-delay:0.54s'><b>writeMicroseconds()</b><span>stop pulse 0 / 0 µs</span></li></ol><div class='kw-gauges'><div class='kw-g'><span>Left servo</span><div class='kw-track'><i class='kw-fill pos' style='left:50%;width:0.0%'></i></div><b>0</b></div><div class='kw-g'><span>Right servo</span><div class='kw-track'><i class='kw-fill pos' style='left:50%;width:0.0%'></i></div><b>0</b></div></div></div><div class='kw-v v-r'><div class='kw-stage m-pr'><svg class='kw-bot pr' viewBox='0 0 80 96' aria-hidden='true'><rect x='18' y='8' width='44' height='80' rx='10' class='kw-body'/><path d='M40 14 l8 10 h-16 z' class='kw-nose'/><rect class='kw-leg' x='8' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='8' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/></svg><p class='kw-cap'><b>Pivot right</b> · Sides run opposite: turns in place to the right</p></div><ol class='kw-flow'><li style='animation-delay:0.00s'><b>HC-05 Bluetooth</b><span>receives 'R'</span></li><li style='animation-delay:0.18s'><b>handleCommand()</b><span>case 'R' → L +65, R −65</span></li><li style='animation-delay:0.36s'><b>rampBoth()</b><span>15 small steps, never a jump</span></li><li style='animation-delay:0.54s'><b>writeMicroseconds()</b><span>stop pulse +195 / −195 µs</span></li></ol><div class='kw-gauges'><div class='kw-g'><span>Left servo</span><div class='kw-track'><i class='kw-fill pos' style='left:50%;width:32.5%'></i></div><b>+65</b></div><div class='kw-g'><span>Right servo</span><div class='kw-track'><i class='kw-fill neg' style='right:50%;width:32.5%'></i></div><b>−65</b></div></div></div><div class='kw-v v-b'><div class='kw-stage m-bk'><svg class='kw-bot bk' viewBox='0 0 80 96' aria-hidden='true'><rect x='18' y='8' width='44' height='80' rx='10' class='kw-body'/><path d='M40 14 l8 10 h-16 z' class='kw-nose'/><rect class='kw-leg' x='8' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='8' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='8' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='14' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='32' width='10' height='14' rx='3' style='animation-delay:0.25s'/><rect class='kw-leg' x='62' y='50' width='10' height='14' rx='3' style='animation-delay:0s'/><rect class='kw-leg' x='62' y='68' width='10' height='14' rx='3' style='animation-delay:0.25s'/></svg><p class='kw-cap'><b>Back</b> · Both sides drive backward, slower than forward</p></div><ol class='kw-flow'><li style='animation-delay:0.00s'><b>HC-05 Bluetooth</b><span>receives 'B'</span></li><li style='animation-delay:0.18s'><b>handleCommand()</b><span>case 'B' → L −55, R −55</span></li><li style='animation-delay:0.36s'><b>rampBoth()</b><span>15 small steps, never a jump</span></li><li style='animation-delay:0.54s'><b>writeMicroseconds()</b><span>stop pulse −165 / −165 µs</span></li></ol><div class='kw-gauges'><div class='kw-g'><span>Left servo</span><div class='kw-track'><i class='kw-fill neg' style='right:50%;width:27.5%'></i></div><b>−55</b></div><div class='kw-g'><span>Right servo</span><div class='kw-track'><i class='kw-fill neg' style='right:50%;width:27.5%'></i></div><b>−55</b></div></div></div></div><p class='kw-note'>Each speed change ramps over 15 steps (watch the bars) so the gears and linkages don't take shock loads. Sending the same command twice does nothing.</p></div>"
+       },
+       {
+        "heading": "Testing and iteration",
+        "text": "Our first test drove the walker from the phone over Bluetooth for the first time. After that we ran several more tries focused on making it faster, and we added small grip pads to the feet so the legs get more traction.",
+        "figures": [
+         {
+          "kind": "video",
+          "src": "https://res.cloudinary.com/vtvazkbc/video/upload/q_auto/v1795493643/walker-first-test.mp4",
+          "alt": "First test: a tablet app with a direction pad steers the eight-legged walker across the floor over Bluetooth",
+          "caption": "First test: driving the walker from the tablet app over Bluetooth."
+         }
+        ]
+       },
+       {
+        "heading": "Results",
+        "text": "The walker was 3D-printed and assembled, with the mechanism shown below.",
+        "figures": []
+       }
+      ],
+      "spec": []
+     },
+     {
+      "type": "figure",
+      "variant": "plain",
+      "kind": "video",
+      "src": "https://res.cloudinary.com/vtvazkbc/video/upload/q_auto/v1795493635/walker-leg.mp4",
+      "alt": "SolidWorks motion study of one Klann leg",
+      "caption": "SolidWorks motion study: one leg through a full crank turn"
+     }
+    ]
+   }
+  },
+  {
+   "id": "orbital-mechanics",
+   "group": "selected",
+   "navLabel": "Orbital mechanics",
+   "card": {
+    "title": "Orbital mechanics",
+    "summary": "Why Mars seems to go backward, proven with 50 years of real NASA data. Plus a live rendezvous planner.",
+    "image": {
+     "src": "img/mars-geocentric.png",
+     "alt": "Looping plot of Mars's path as seen from Earth",
+     "fit": "contain",
+     "white": true
+    }
+   },
+   "page": {
+    "tone": "dark",
+    "eyebrow": "03 · Orbital mechanics",
+    "kicker": "Python · MATLAB · NASA JPL Horizons · AE 424",
+    "title": "Fifty Years of Mars",
+    "tagline": "**Why does Mars sometimes go backward?** 50 years of real NASA data, one clear answer, and Mars's orbit rebuilt from scratch.",
+    "blocks": [
+     {
+      "type": "figure",
+      "variant": "plain",
+      "kind": "video",
+      "src": "https://res.cloudinary.com/vtvazkbc/video/upload/q_auto/v1795493635/mars-3d-geocentric-clip.mp4",
+      "alt": "3D animation built from NASA Horizons data: with Earth fixed at the centre, the Sun circles it and Mars traces a growing pattern of loops",
+      "caption": "My 3D animation with Earth held still at the centre. The Sun circles, and Mars traces loops. Every point is real NASA Horizons data."
+     },
+     {
+      "type": "story",
+      "specTitle": "",
+      "sections": [
+       {
+        "heading": "Why this is cool",
+        "html": "<div class='hook'><div class='hook-text'><span class='hook-kicker'>The puzzle</span><h5>Every two years, Mars moonwalks.</h5><p>It slows down, <strong>drifts backward across the sky for about two months</strong>, then carries on as if nothing happened.</p></div><svg class='hook-loop' viewBox='0 0 320 120' role='img' aria-label='Mars path across the sky: moving forward, looping backward for about two months, then forward again'><defs><linearGradient id='hk-g' x1='0' x2='1'><stop offset='0' stop-color='#ff9f0a' stop-opacity='.35'/><stop offset='.45' stop-color='#ff6a3d'/><stop offset='.6' stop-color='#bf5af2'/><stop offset='.75' stop-color='#ff6a3d'/><stop offset='1' stop-color='#ff6a3d'/></linearGradient></defs><g class='hk-stars'><circle cx='22' cy='18' r='1.2'/><circle cx='64' cy='40' r='0.9'/><circle cx='98' cy='12' r='1.4'/><circle cx='140' cy='96' r='1'/><circle cx='170' cy='14' r='1.1'/><circle cx='236' cy='102' r='1.3'/><circle cx='262' cy='62' r='0.9'/><circle cx='300' cy='92' r='1.2'/><circle cx='46' cy='104' r='1'/><circle cx='122' cy='66' r='0.8'/><circle cx='284' cy='14' r='1'/><circle cx='210' cy='24' r='0.8'/></g><path d='M8 98 C60 86 112 62 150 54 C190 46 214 72 196 84 C176 97 158 64 196 52 C236 40 276 32 300 24' fill='none' stroke='url(#hk-g)' stroke-width='3.5' stroke-linecap='round'/><circle cx='300' cy='24' r='7' fill='#ff6a3d'/><circle cx='300' cy='24' r='12' fill='#ff6a3d' opacity='.18'/><text x='186' y='112' class='hk-lbl'>← backward, ~70 days</text><text x='14' y='84' class='hk-lbl2'>forward</text></svg></div><ol class='era'><li><span class='yr'>~150 AD</span><b>Ptolemy</b><p>Earth at the centre. The loops get explained with circles on circles.</p></li><li><span class='yr'>1543</span><b>Copernicus</b><p>Puts the Sun at the centre. The loops become a trick of perspective.</p></li><li class='hl'><span class='yr'>1609</span><b>Kepler</b><p>Cracks Mars's real orbit: an ellipse. Right inside our 1600–1650 data.</p></li><li class='me'><span class='yr'>Today</span><b>Us</b><p>18,264 days of NASA positions, and code to test it all.</p></li></ol><p class='key'><strong>We went further than \"it's a perspective effect\".</strong> We measured Mars's orbit from raw numbers, checked it against the laws of physics, and tested whether a computer can predict it.</p>"
+       },
+       {
+        "heading": "My part",
+        "html": "<div class='compare'><div class='card mine'><h5>Me: the Sun-centred analysis and the 3D animation</h5><p>I wrote the whole Sun-centred orbit analysis: the Horizons data reader, the switch to a Sun-centred frame with the relative motion equation, the conservation checks and the orbital elements. I also built the 3D geocentric motion animation at the top of this page.</p></div><div class='card'><h5>Team: the rest of the project</h5><p>The 2D retrograde plots in the Earth-centred model, the MATLAB solver comparison and the two-body simulation, as a team of four.</p></div></div>"
+       }
+      ],
+      "spec": []
+     },
+     {
+      "type": "subtitle",
+      "title": "See it for yourself",
+      "tagline": "Real Horizons data, four days per frame. On the left, the view from above the Sun: Earth on the inside lane, Mars on the outside. On the right, the same moment as seen from Earth. Watch Mars's path each time Earth overtakes it."
+     },
+     {
+      "type": "mars"
+     },
+     {
+      "type": "story",
+      "specTitle": "Project data",
+      "sections": [
+       {
+        "heading": "What we discovered",
+        "html": "<div class='facts'><div><b>24</b><span>retrograde loops in our 50 years of data</span></div><div><b>60–81 days</b><span>how long each backward drift lasts</span></div><div><b>779 days</b><span>between loops: the time it takes Earth to lap Mars</span></div><div><b>56–400M km</b><span>Earth–Mars distance, a more than 7× swing</span></div></div><p class='key'><strong>Retrograde motion isn't Mars reversing.</strong> Earth is on the faster inside track, and when it overtakes Mars our line of sight swings backward against the stars for a couple of months. In the Sun-centred view nothing ever goes backward.</p>"
+       },
+       {
+        "heading": "Measuring Mars's orbit from raw data (my part)",
+        "text": "From nothing but daily positions and velocities, I rebuilt Mars's orbit and compared it with the textbook values (Curtis, Orbital Mechanics for Engineering Students, Table A.1).",
+        "html": "<div class='tbl'><table><thead><tr><th>Orbital element</th><th>From our data</th><th>Textbook</th></tr></thead><tbody><tr><td>Semi-major axis, a</td><td class='best'>227.96 M km (1.524 AU)</td><td>227.9 M km</td></tr><tr><td>Eccentricity, e</td><td class='best'>0.0931</td><td>0.0934</td></tr><tr><td>Period, T</td><td class='best'>687.1 days</td><td>687.0 days</td></tr><tr><td>Inclination, i</td><td class='best'>1.88°</td><td>1.85°</td></tr><tr><td>Perihelion / aphelion</td><td>206.7 / 249.2 M km</td><td>–</td></tr></tbody></table></div><p class='key'>Angular momentum and specific energy stayed constant to about <strong>0.01%</strong> over all 50 years, exactly what a two-body orbit predicts. That check is also how I knew the whole data pipeline was right.</p>"
+       },
+       {
+        "heading": "How my code works, step by step",
+        "html": "<ol class='steps'><li><b>Pull the data</b><p>Daily position and velocity vectors from NASA JPL Horizons, 1600 to 1650. The useful part of each file sits between the <code>$$SOE</code> and <code>$$EOE</code> markers, so a small reader cuts it out and loads it into a table.</p><details class='code'><summary>See my Python</summary><pre><code>block = content[start + len('$$SOE'):end]\ndf = pd.read_csv(StringIO(block), names=columns)</code></pre></details></li><li><b>Move the camera to the Sun</b><p>Horizons gives Mars and the Sun <strong>as seen from Earth</strong>. Subtracting one from the other gives Mars <strong>as seen from the Sun</strong>. That's the relative motion equation:</p><div class='eq'><b class='v'>r</b><sub>Mars/Sun</sub> = <b class='v'>r</b><sub>Mars/Earth</sub> − <b class='v'>r</b><sub>Sun/Earth</sub></div><p class='tip'><b>Watch out for reference frames.</b> Horizons can measure coordinates from the plane of Earth's orbit (ecliptic) or from Earth's equator (ICRF). Those two are tilted 23.4° apart, Earth's axial tilt, so both files must use the same one. Mix them and Mars's orbit comes out tilted 21.8° instead of 1.9°.</p><details class='code'><summary>See my Python</summary><pre><code>r_se = -r_sun            # Earth, seen from the Sun\nr_sm = r_se + r_planet   # Mars, seen from the Sun</code></pre></details></li><li><b>Check the physics</b><p>In a two-body orbit, two quantities can <strong>never change</strong>: angular momentum and specific energy. If they drift, the data or the code is wrong.</p><div class='eqs'><div class='eq'><b class='v'>h</b> = <b class='v'>r</b> × <b class='v'>v</b><small>angular momentum</small></div><div class='eq'><i>ε</i> = <span class='fr'><span><i>v</i><sup>2</sup></span><span>2</span></span> − <span class='fr'><span><i>μ</i></span><span><i>r</i></span></span><small>specific energy</small></div></div><p class='legend'><i>μ</i> is the Sun's gravitational parameter, 1.327 × 10<sup>11</sup> km³/s².</p><details class='code'><summary>See my Python</summary><pre><code>h_vec  = np.cross(r, v)\nenergy = 0.5*v_norm**2 - mu_sun/r_norm</code></pre></details></li><li><b>Back out the orbit</b><p>Those two constants are enough to rebuild <strong>the whole ellipse</strong>: its size, shape, period and tilt.</p><div class='eqs'><div class='eq'><i>a</i> = −<span class='fr'><span><i>μ</i></span><span>2<i>ε</i></span></span><small>size</small></div><div class='eq'><i>e</i> = <span class='sq'>√<span>1 − <span class='fr'><span><i>h</i><sup>2</sup></span><span><i>μ</i><i>a</i></span></span></span></span><small>shape</small></div><div class='eq'><i>T</i> = 2π<span class='sq'>√<span><span class='fr'><span><i>a</i><sup>3</sup></span><span><i>μ</i></span></span></span></span><small>period</small></div><div class='eq'><i>i</i> = cos<sup>−1</sup><span class='fr'><span><i>h</i><sub>z</sub></span><span><i>h</i></span></span><small>tilt</small></div></div><details class='code'><summary>See my Python</summary><pre><code>a = -mu_sun / (2*mean_energy)\ne = np.sqrt(1 - h**2 / (mu_sun*a))\nT = 2*np.pi*np.sqrt(a**3 / mu_sun)\ni = np.degrees(np.arccos(h_z / h))</code></pre></details></li><li><b>Predict it (team)</b><p>Then the reverse test: start from one day's position and velocity, integrate the equation of motion forward in MATLAB, and see how long the prediction stays on top of the real thing.</p><div class='eq'><b class='v'>r̈</b> = −<span class='fr'><span><i>μ</i></span><span><i>r</i><sup>3</sup></span></span> <b class='v'>r</b><small>two-body equation of motion</small></div></li></ol>"
+       },
+       {
+        "heading": "Which solver can you trust?",
+        "text": "We gave nine MATLAB solvers the same starting point and compared each prediction with Horizons. All of them found Mars's period of about 688 days, but their accuracy was very different.",
+        "html": "<div class='tbl'><table><thead><tr><th>Solver</th><th>Avg. error vs. Horizons, 50 yr</th><th>Run time, 1,000 yr</th></tr></thead><tbody><tr><td>ode89</td><td class='best'>0.45%</td><td>5.1 s</td></tr><tr><td>ode23t</td><td>0.53%</td><td>14.6 s</td></tr><tr><td>ode23tb</td><td>1.86%</td><td>15.1 s</td></tr><tr><td>ode23s</td><td>3.31%</td><td>15.4 s</td></tr><tr><td>ode23</td><td>4.77%</td><td>2.3 s</td></tr><tr><td>ode113</td><td>5.00%</td><td>3.9 s</td></tr><tr><td>ode78</td><td>6.36%</td><td>29.4 s</td></tr><tr><td>ode15s</td><td>14.38%</td><td class='worst'>Diverges</td></tr><tr><td>ode45</td><td class='worst'>27.67%</td><td class='worst'>Diverges</td></tr></tbody></table></div>",
+        "text2": "**The surprise:** **ode45**, MATLAB's go-to solver, was the worst, with 27.7% average error, and it diverged over 1,000 years. **ode89** was about 60× more accurate. Even at a tolerance near 10⁻¹⁵ the prediction never matches Horizons perfectly, because the real Mars is also pulled by Jupiter and the other planets. That gap is the limit of the two-body model, not of the solver.\n\n**Is that result normal?** Yes: orbits are smooth, which is where high-order methods like ode89 shine, and NASA's GMAT mission-design software uses an 8th/9th-order Runge-Kutta integrator by default. One caveat: we compared the solvers at MATLAB's default error tolerances. Tightening them would narrow the gap, especially for ode45 and ode113, at the cost of run time."
+       },
+       {
+        "heading": "Where this applies",
+        "html": "<div class='apps'><div><span class='tag'>Mission planning</span><h5>Launch windows</h5><p>Mars missions launch roughly <strong>every 26 months</strong>. That's the 779-day rhythm in our data: the best time to leave depends on how Earth and Mars line up.</p></div><div><span class='tag'>Communications</span><h5>Talking to a rover</h5><p>A radio signal takes <strong>3 to 22 minutes</strong> to reach Mars, depending on where the planets are. Commands can't be live, so rovers need autonomy.</p></div><div><span class='tag'>Verification</span><h5>Testing flight software</h5><p>Energy and angular momentum checks are a <strong>cheap, powerful test</strong> for any orbit simulator. If they drift, something is wrong before anything flies.</p></div><div><span class='tag'>Simulation</span><h5>Picking the right solver</h5><p><strong>The default isn't always the best.</strong> For long propagations, measure error and run time against real data before trusting the result.</p></div></div>"
+       },
+       {
+        "heading": "Two bodies, one centre of mass",
+        "text": "The last part simulated two equal masses orbiting each other and animated their paths about the shared centre of mass."
+       }
+      ],
+      "spec": [
+       {
+        "dt": "Data",
+        "dd": "NASA JPL Horizons, daily position and velocity"
+       },
+       {
+        "dt": "Span",
+        "dd": "1600–1650 · 18,264 days"
+       },
+       {
+        "dt": "Mars orbit, from our data",
+        "dd": "a = 1.524 AU · e = 0.093 · T = 687 days"
+       },
+       {
+        "dt": "Conserved",
+        "dd": "h and energy within ~0.01%"
+       },
+       {
+        "dt": "Retrograde loops",
+        "dd": "24, one every ~779 days"
+       },
+       {
+        "dt": "Best solver",
+        "dd": "ode89 · 0.45% average error"
+       },
+       {
+        "dt": "Tools",
+        "dd": "Python (NumPy, pandas, Matplotlib) · MATLAB"
+       },
+       {
+        "dt": "My part",
+        "dd": "Sun-centred orbit analysis · 3D geocentric animation"
+       },
+       {
+        "dt": "Course",
+        "dd": "AE 424 Orbital Mechanics · team of 4"
+       }
+      ]
+     },
+     {
+      "type": "gallery",
+      "cols": 2,
+      "variant": "plots",
+      "items": [
+       {
+        "kind": "img",
+        "src": "img/mars-geocentric.png",
+        "alt": "Plot of Mars and the Sun as seen from Earth: the Sun traces a circle while Mars traces a looping spirograph pattern",
+        "caption": "Mars and the Sun as seen from Earth. Each small loop is one retrograde episode."
+       },
+       {
+        "kind": "img",
+        "src": "img/mars-geo3d.png",
+        "alt": "3D plot of geocentric motion showing Earth at the centre, the Sun's circular path and Mars's looping path",
+        "caption": "The same motion in 3D, from our frame-of-reference animation"
+       },
+       {
+        "kind": "img",
+        "src": "img/mars-conservation.png",
+        "alt": "Three plots over 18,000 days showing angular momentum, areal velocity and specific energy each changing by about 0.01 percent or less",
+        "caption": "Angular momentum, areal velocity and specific energy over 50 years: all constant to about 0.01%"
+       },
+       {
+        "kind": "img",
+        "src": "img/mars-ode.png",
+        "alt": "Plot of Mars's orbit around the Sun: the ode113 integrated orbit drifts slightly outside the NASA Horizons orbit",
+        "caption": "Our integrated orbit (ode113, blue) against NASA Horizons (red)"
+       }
+      ]
+     },
+     {
+      "type": "subtitle",
+      "title": "Phasing Rendezvous Planner",
+      "tagline": "Two spacecraft share an elliptical orbit, with the target 75° ahead. How does the chaser catch it, and how much fuel does it cost? I wrote a Python solver for this. The animation below runs the same math live."
+     },
+     {
+      "type": "sim"
+     },
+     {
+      "type": "story",
+      "specTitle": "Problem data",
+      "sections": [
+       {
+        "heading": "The problem",
+        "text": "Chaser P sits at periapsis of orbit O₁ (a = 10,750 km, e = 0.3488). Target B is at a true anomaly of 75°. P fires a tangential burn at periapsis to enter a slightly smaller, faster phasing orbit, catches B back at periapsis, then fires an equal and opposite burn to rejoin O₁."
+       },
+       {
+        "heading": "Method",
+        "text": "- Convert B's true anomaly to eccentric anomaly, then mean anomaly (Kepler's equation), then time from periapsis.\n- Set the timing constraint N·T<sub>phase</sub> = t<sub>B→P</sub> + (N−1)·T<sub>O₁</sub> and solve for the phasing orbit's period and semi-major axis.\n- Keep the same periapsis radius, get the angular momentum, and compute Δv = (h<sub>phase</sub> − h<sub>O₁</sub>) / r<sub>p</sub>.\n- Loop over N to find the fewest revolutions that keep each burn under a 0.15 km/s fuel limit."
+       },
+       {
+        "heading": "The trade-off",
+        "text": "Spending more revolutions phasing means each orbit only needs to be slightly shorter than O₁, so the burns get smaller. The cost is time. Drag the slider to see Δv fall as N grows. For N = 1 the solver matches the hand calculation from class: a 0.172 km/s burn into a 9,947.8 km phasing orbit."
+       },
+       {
+        "heading": "Also in this course",
+        "text": "Hohmann transfer wait times to Venus, Mars and Neptune from the synodic period (Earth to Mars from a 183° phase angle: 300.5-day wait plus 258.8-day transfer), inclination-change Δv vs. eccentricity, and Lambert's problem in MATLAB."
+       }
+      ],
+      "spec": [
+       {
+        "dt": "Orbit O₁",
+        "dd": "a = 10,750 km · e = 0.348837"
+       },
+       {
+        "dt": "Periapsis radius",
+        "dd": "7,000 km"
+       },
+       {
+        "dt": "Target start",
+        "dd": "θ = 75°"
+       },
+       {
+        "dt": "μ (Earth)",
+        "dd": "398,600 km³/s²"
+       },
+       {
+        "dt": "Fuel limit",
+        "dd": "|Δv| ≤ 0.15 km/s per burn"
+       },
+       {
+        "dt": "Tools",
+        "dd": "Python (NumPy, SciPy, Matplotlib) · MATLAB"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "tele-piano",
+   "group": "selected",
+   "navLabel": "Tele-Piano",
+   "card": {
+    "title": "Tele-Piano",
+    "summary": "In progress. A piano that follows a pianist's hands, live, from somewhere else.",
+    "image": {
+     "src": "img/revb-assembly.png",
+     "alt": "Render of the Tele-Piano keyboard"
+    }
+   },
+   "page": {
+    "tone": "alt",
+    "eyebrow": "04 · Tele-Piano · In progress",
+    "kicker": "Mechatronics · Design · Music",
+    "title": "Tele-Piano",
+    "tagline": "**A piano that follows your hands, live.** You play here. A real piano plays it, somewhere else.",
+    "blocks": [
+     {
+      "type": "piano"
+     },
+     {
+      "type": "story",
+      "specTitle": "",
+      "spec": [],
+      "sections": [
+       {
+        "heading": "The idea",
+        "text": "Imagine playing a piano that isn't in the room. You move your hands, and somewhere else **a real piano plays every note as you play it**. No recording, no playback: just your hands and a piano that follows them.\n\nThat's Tele-Piano. The animation above shows the idea; tap the keys to try it."
+       },
+       {
+        "heading": "Where we are",
+        "html": "<ol class='era'><li class='done'><span class='yr'>Done</span><b>The idea</b><p>A piano that mirrors a pianist's hands in real time.</p></li><li class='done'><span class='yr'>Done</span><b>Design</b><p>Concept, CAD and first renders of the keyboard.</p></li><li class='me'><span class='yr'>Now</span><b>Building</b><p>Turning the design into a working prototype.</p></li><li class='hl'><span class='yr'>Next</span><b>First live song</b><p>Hands in one place, music in another.</p></li></ol>"
+       },
+       {
+        "heading": "What's next",
+        "html": "<p class='key'><strong>The first live song is next.</strong> How it works stays under wraps until the piano plays it for real. Check back soon.</p>"
+       }
+      ]
+     },
+     {
+      "type": "figure",
+      "variant": "lead",
+      "src": "img/revb-assembly.png",
+      "alt": "Rendered Tele-Piano rev B: a black 3D-printed enclosure with seven white and five black keys",
+      "caption": "Sneak peek: an early render."
+     }
+    ]
+   }
+  },
+  {
+   "id": "cansat",
+   "group": "more",
+   "navLabel": "CanSat",
+   "card": {
+    "title": "CanSat Finalist",
+    "label": "CanSat World Championship · UNAM · 2025",
+    "summary": "A can-sized satellite dropped from up to 400 m by a drone. It had to stream live data, slow itself down with a rotor, and land with a raw egg, seeds and water intact.",
+    "image": {
+     "src": "img/cansat-built.jpg",
+     "alt": "The wooden CanSat prototype with its rotor blades folded open on top",
+     "pos": "center 40%"
+    }
+   },
+   "page": {
+    "tone": "dark",
+    "eyebrow": "More work",
+    "kicker": "CanSat World Championship · PEU UNAM · 2025",
+    "title": "CanSat Finalist",
+    "tagline": "**Drop it from 400 m. Keep the egg alive.** A can-sized satellite, built by a team of six, that made it to the world final at UNAM.",
+    "blocks": [
+     {
+      "type": "figure",
+      "variant": "lead",
+      "src": "img/cansat-team-final.jpg",
+      "alt": "The six-person team at the CanSat world competition in front of the 'Concurso Mundial Satélites Enlatados' banner at UNAM",
+      "caption": "Team Cuantificadores CUU at the world final, Ciudad Universitaria, UNAM.",
+      "pos": "center 45%"
+     },
+     {
+      "type": "story",
+      "specTitle": "Mission facts",
+      "sections": [
+       {
+        "heading": "The challenge",
+        "html": "<div class='hook'><div class='hook-text'><span class='hook-kicker'>The mission: Akai-Sakura</span><h5>Plant a forest on Mars.</h5><p>The competition's story: it's 2051 and a satellite has to deliver <strong>seeds and water to Utopia Planitia</strong> so trees can grow on Mars. Our job was to build the satellite and prove it works on Earth: dropped from the sky, slowed down with no motor, and landed with its cargo intact.</p></div></div><div class='facts'><div><b>300–400 m</b><span>release height, lifted by a drone</span></div><div><b>&lt; 18 m/s</b><span>landing speed, with no motor, only a rotor</span></div><div><b>&lt; 700 g</b><span>total mass, including an egg, seeds and 125 ml of water</span></div><div><b>$600</b><span>maximum budget for the whole satellite</span></div></div>"
+       },
+       {
+        "heading": "My part",
+        "html": "<div class='compare'><div class='card mine'><h5>Me: structure and shock absorption</h5><p>I worked on the wooden structure, the body that holds everything inside the 2U envelope and the 700 g limit, and on the shock-absorption system that keeps the egg alive: the spring-cushioned base, plus the cushioning wrapped around the egg, which we chose by drop-testing different materials.</p></div><div class='card'><h5>Team: everything else</h5><p>The rotor, the flight electronics and telemetry, and the ground station, as a team of six.</p></div></div>"
+       },
+       {
+        "heading": "How a flight works",
+        "html": "<ol class='era five'><li><span class='yr'>1 · Lift</span><b>Drone climb</b><p>A drone carries the CanSat up to 300–400 m.</p></li><li><span class='yr'>2 · Release</span><b>Free fall</b><p>Dropped. Live data streams to our ground station.</p></li><li class='hl'><span class='yr'>3 · 200 m</span><b>Rotor opens</b><p>Blades unfold and spin like a maple seed.</p></li><li><span class='yr'>4 · Descent</span><b>Slow and steer</b><p>Under 18 m/s, aiming for a 3 m bullseye.</p></li><li class='me'><span class='yr'>5 · Landing</span><b>Cargo check</b><p>Egg, seeds and water intact. Keep transmitting 30 s.</p></li></ol>"
+       },
+       {
+        "heading": "The rules that made it hard",
+        "html": "<div class='apps'><div><span class='tag'>The crew</span><h5>A raw egg</h5><p>A 60 g chicken egg rides inside as the \"astronaut\". It has to come back <strong>uncracked</strong>.</p></div><div><span class='tag'>The cargo</span><h5>Seeds and water</h5><p>Native seeds and <strong>125 ml of water</strong> in a sealed container. Not a drop can spill.</p></div><div><span class='tag'>The body</span><h5>Made of wood</h5><p>A <strong>2U CubeSat</strong>-sized structure, and the rules say it has to be wood.</p></div><div><span class='tag'>The data</span><h5>Live telemetry</h5><p>Pressure, temperature, speed, acceleration and <strong>CO₂</strong>, from lift-off until 30 s after landing.</p></div></div>"
+       },
+       {
+        "heading": "Our design (structure and landing: my part)",
+        "text": "A laser-cut wooden body sized like a 2U CubeSat, with a cradle for the egg and a sealed water container inside. Underneath, a **spring-cushioned shock-absorption base** takes the hit at landing, so the egg doesn't. On top, a **folding autogyro rotor**: no motor, the blades open at 200 m and the air spins them, like a maple seed.",
+        "figures": [
+         {
+          "src": "img/cansat-cad-section.jpg",
+          "alt": "CAD section of the wooden CanSat showing the egg cradle, internal compartments and measurements",
+          "caption": "CAD section: the egg's place in the middle, payload bays around it",
+          "white": true,
+          "fit": "contain"
+         },
+         {
+          "src": "img/cansat-built.jpg",
+          "alt": "The built wooden CanSat with its two rotor blades folded open on top and springs at the base",
+          "caption": "The real thing: blades open, springs at the base",
+          "pos": "center 40%"
+         }
+        ]
+       },
+       {
+        "heading": "Protecting the egg (my part)",
+        "text": "The landing is the most dangerous moment for the egg. The spring base takes the first hit, but the egg also needed its own **cushioning wrap**, light enough for the 700 g limit and small enough to fit inside the body. Instead of guessing, we tested it.",
+        "html": "<ol class='era'><li><span class='yr'>1</span><b>Pick candidates</b><p>Several light cushioning materials that could wrap a 60 g egg.</p></li><li><span class='yr'>2</span><b>Wrap the egg</b><p>Each material wrapped the same way, so the tests were fair.</p></li><li><span class='yr'>3</span><b>Drop it</b><p>Repeated drop tests to see which one absorbed the most shock.</p></li><li class='me'><span class='yr'>4</span><b>Pick the winner</b><p>The best absorber went into the flight CanSat.</p></li></ol><p class='key'><strong>Two layers of protection:</strong> the spring base slows the whole satellite at impact, and the wrap spreads what's left around the egg's shell instead of letting it hit one point.</p>"
+       },
+       {
+        "heading": "The rotor",
+        "text": "The rotor is what slows the CanSat from free fall to a safe landing. We designed the hub and gave the blades a curved, wing-like profile so they **generate lift as they spin**.",
+        "figures": [
+         {
+          "src": "img/cansat-rotor-hub.jpg",
+          "alt": "CAD model of the rotor hub with hinged blades hanging down in the folded position",
+          "caption": "Rotor hub with the blades folded",
+          "white": true,
+          "fit": "contain"
+         },
+         {
+          "src": "img/cansat-blade.jpg",
+          "alt": "CAD model of a single curved rotor blade",
+          "caption": "One blade: a curved, wing-like profile",
+          "white": true,
+          "fit": "contain"
+         }
+        ]
+       },
+       {
+        "heading": "The electronics",
+        "text": "Our own flight board, with the team name printed on it, reads the sensors and streams the data live to the ground station. Everything, antenna included, had to fit inside the wooden body and run on **9 V batteries only**.",
+        "figures": [
+         {
+          "src": "img/cansat-board.jpg",
+          "alt": "The team's green flight computer board with sensor modules and an antenna",
+          "caption": "The flight board"
+         },
+         {
+          "src": "img/cansat-board-lit.jpg",
+          "alt": "The flight board powered on with its status lights glowing",
+          "caption": "Powered up on the bench"
+         }
+        ]
+       },
+       {
+        "heading": "The team",
+        "text": "Six students as **Cuantificadores CUU**. The competition ran for six months in five stages: concept review, preliminary design, critical design, a remote acceptance test, and the live drop at UNAM in May 2025.",
+        "figures": [
+         {
+          "src": "img/cansat-lab.jpg",
+          "alt": "Team members working together at a lab bench",
+          "caption": "Working through the design in the lab"
+         },
+         {
+          "src": "img/cansat-logo.jpg",
+          "alt": "The Cuantificadores CUU team logo: a person reaching toward a small satellite inside a circular badge",
+          "caption": "Our team logo",
+          "fit": "contain",
+          "white": true
+         }
+        ]
+       }
+      ],
+      "spec": [
+       {
+        "dt": "Competition",
+        "dd": "Mundial CanSat 2025 · Programa Espacial Universitario, UNAM"
+       },
+       {
+        "dt": "Final",
+        "dd": "May 2025 · Ciudad Universitaria, Mexico City"
+       },
+       {
+        "dt": "Result",
+        "dd": "Finalist"
+       },
+       {
+        "dt": "My part",
+        "dd": "Structure · shock absorption · egg cushioning tests"
+       },
+       {
+        "dt": "Team",
+        "dd": "Cuantificadores CUU · 6 students"
+       },
+       {
+        "dt": "Structure",
+        "dd": "Wood, 2U CubeSat envelope"
+       },
+       {
+        "dt": "Mass limit",
+        "dd": "< 700 g with payload"
+       },
+       {
+        "dt": "Recovery",
+        "dd": "Passive autogyro, < 18 m/s"
+       },
+       {
+        "dt": "Telemetry",
+        "dd": "Pressure, temperature, speed, acceleration, CO₂"
+       },
+       {
+        "dt": "Power",
+        "dd": "9 V batteries only"
+       }
+      ]
+     },
+     {
+      "type": "gallery",
+      "cols": 2,
+      "items": [
+       {
+        "kind": "img",
+        "src": "img/cansat-cad-cutaway.jpg",
+        "alt": "CAD cutaway of the CanSat showing the egg, internal layout and a distance measurement",
+        "caption": "Checking clearances in CAD",
+        "white": true,
+        "fit": "contain"
+       },
+       {
+        "kind": "img",
+        "src": "img/cansat-proto.jpg",
+        "alt": "Early CanSat prototype on a kitchen scale with rotor blades folded out",
+        "caption": "Early prototype on the scale: every gram counted",
+        "pos": "center 58%"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "ultrasonic-testing",
+   "group": "more",
+   "navLabel": "Ultrasonic testing",
+   "card": {
+    "title": "Ultrasonic Thickness and Flaw Testing",
+    "label": "Non-destructive testing · NMSU NDE Lab · 2026",
+    "summary": "Trained in ultrasonic testing at NMSU's NDE Lab: using sound to measure thickness and find hidden flaws inside metal, without cutting it open.",
+    "image": {
+     "src": "img/ut-straight-probe.jpg",
+     "alt": "Sonatest flaw detector showing an A-scan with echo peaks, connected to a straight probe pressed on a steel block",
+     "pos": "center 22%"
+    }
+   },
+   "page": {
+    "tone": "alt",
+    "eyebrow": "More work",
+    "kicker": "Non-destructive testing · NMSU NDE Lab · 2026",
+    "title": "Ultrasonic Thickness and Flaw Testing",
+    "tagline": "**Seeing inside metal with sound.** Hands-on ultrasonic testing training at NMSU's Non-Destructive Evaluation Lab.",
+    "blocks": [
+     {
+      "type": "figure",
+      "variant": "plain",
+      "src": "img/ut-straight-probe.jpg",
+      "alt": "Sonatest flaw detector showing an A-scan with echo peaks, connected to a straight probe pressed on a steel block",
+      "caption": "My setup in the training: a straight probe on a steel block, and its echoes on the flaw detector."
+     },
+     {
+      "type": "story",
+      "specTitle": "Program",
+      "sections": [
+       {
+        "heading": "How it works",
+        "text": "A probe sends a short burst of **high-frequency sound** into the metal, far above what we can hear. The sound bounces off whatever it meets: the back wall of the part, or a crack, void or corroded spot hiding inside. The flaw detector plots those echoes as peaks on an **A-scan**.",
+        "html": "<div class='ut-diag' role='img' aria-label='Ultrasonic testing: a probe on a steel plate sends a sound pulse down. Part of it echoes off a hidden flaw, the rest off the back wall. The A-scan shows three peaks: the initial pulse, a small flaw echo, and the back-wall echo.'><svg class='ut-plate' viewBox='10 0 250 210'><g><rect x='20' y='70' width='230' height='110' rx='6' style='fill:var(--surface-2);stroke:var(--line)'/><path d='M24 180 H246' style='stroke:var(--fg);stroke-width:2.5;stroke-linecap:round'/><text x='135' y='198' text-anchor='middle' class='ut-t'>steel plate</text><rect x='72' y='70' width='40' height='110' style='fill:var(--accent);opacity:.13'/><rect x='70' y='38' width='44' height='32' rx='5' style='fill:var(--accent)'/><text x='92' y='30' text-anchor='middle' class='ut-t strong'>probe</text><path d='M80 72 V177' style='stroke:var(--accent);stroke-width:2;stroke-dasharray:5 4'/><path d='M100 72 V108' style='stroke:var(--bad);stroke-width:2;stroke-dasharray:5 4'/><ellipse cx='104' cy='116' rx='20' ry='6' style='fill:var(--page);stroke:var(--bad);stroke-width:2'/><text x='130' y='120' class='ut-t' style='fill:var(--bad)'>hidden flaw</text><text x='244' y='172' text-anchor='end' class='ut-t strong'>back wall</text></g></svg><svg class='ut-scan' viewBox='290 0 330 210'><g transform='translate(290 0)'><path d='M10 180 H320 M10 180 V30' style='stroke:var(--line);fill:none'/><text x='320' y='198' text-anchor='end' class='ut-t'>time →</text><text x='14' y='24' class='ut-t'>echo strength</text><path d='M10 178 L30 178 L36 40 L42 178 L106 178 L112 120 L118 178 L240 178 L246 70 L252 178 L320 178' style='fill:none;stroke:#30d158;stroke-width:2.5;stroke-linejoin:round'/><text x='47' y='52' class='ut-t strong'>pulse</text><text x='112' y='112' text-anchor='middle' class='ut-t' style='fill:var(--bad)'>flaw</text><text x='249' y='62' text-anchor='middle' class='ut-t strong'>back wall</text></g></svg></div><div class='eqs'><div class='eq'><i>d</i> = <span class='fr'><span><i>v</i> · <i>t</i></span><span>2</span></span><small>depth or thickness</small></div></div><p class='key'><strong>The echo's timing tells you where things are.</strong> Sound travels through steel at about 5.9 km/s. Measure how long the echo takes to come back, multiply by the speed and halve it (down and back), and you get the plate's thickness, or exactly how deep a hidden flaw sits.</p>"
+       },
+       {
+        "heading": "The training",
+        "text": "I completed the **Certification to Degree (C2D) Ultrasonic Testing training** at NMSU's NDE Lab. It's part of a Department of Defense-funded consortium between Arizona State University, NMSU and Navajo Technical University that builds pathways into advanced manufacturing and non-destructive evaluation.",
+        "html": "<ol class='era five'><li><span class='yr'>1</span><b>Theory</b><p>How sound moves through materials and what echoes mean.</p></li><li><span class='yr'>2</span><b>Calibrate</b><p>Set up the flaw detector on a stepped calibration block.</p></li><li><span class='yr'>3</span><b>Read A-scans</b><p>Turn the peaks on the screen into real distances.</p></li><li class='hl'><span class='yr'>4</span><b>Find flaws</b><p>Inspect real test pieces, including a badly corroded plate.</p></li><li class='me'><span class='yr'>5</span><b>Certificate</b><p>Completed the C2D ultrasonic testing training.</p></li></ol>",
+        "figures": [
+         {
+          "src": "img/ut-angle-probe.jpg",
+          "alt": "Angle-beam probe on a wedge, resting on a curved calibration block in front of the flaw detector",
+          "caption": "Angle-beam probe on a calibration block, the setup used for welds",
+          "pos": "center 60%"
+         }
+        ]
+       },
+       {
+        "heading": "Why it matters",
+        "html": "<div class='apps'><div><span class='tag'>Aerospace</span><h5>Cracks you can't see</h5><p>Aircraft parts are checked for <strong>hidden fatigue cracks</strong> without cutting them open or taking them out of service.</p></div><div><span class='tag'>Industry</span><h5>Corrosion and thickness</h5><p>Pipes, tanks and pressure vessels are scanned for <strong>wall thinning</strong> long before they leak.</p></div><div><span class='tag'>Manufacturing</span><h5>Welds and printed parts</h5><p>Ultrasound finds <strong>voids and lack of fusion</strong> in welds and 3D-printed metal before they ever reach service.</p></div><div><span class='tag'>Safety</span><h5>Test without breaking</h5><p>The part you inspect is the part that flies or ships. <strong>Nothing gets destroyed</strong> to prove it's good.</p></div></div>"
+       }
+      ],
+      "spec": [
+       {
+        "dt": "Program",
+        "dd": "C2D Ultrasonic Testing (UT) Training"
+       },
+       {
+        "dt": "Where",
+        "dd": "NMSU Non-Destructive Evaluation Lab, Las Cruces"
+       },
+       {
+        "dt": "Consortium",
+        "dd": "Arizona State · NMSU · Navajo Technical University"
+       },
+       {
+        "dt": "Funding",
+        "dd": "U.S. Department of Defense"
+       },
+       {
+        "dt": "Equipment",
+        "dd": "Sonatest ultrasonic flaw detector"
+       },
+       {
+        "dt": "Skills",
+        "dd": "Calibration · A-scan reading · thickness gauging · flaw detection"
+       },
+       {
+        "dt": "Lab site",
+        "dd": "nmsundelab.com/c2d-ut"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "rc-plane",
+   "group": "more",
+   "navLabel": "RC plane",
+   "card": {
+    "title": "Scratch-Built RC Plane",
+    "label": "Freshman Statics project",
+    "summary": "Our first project in freshman Statics: balancing a scratch-built plane the way real aircraft balance their weight. It flew about 6 seconds, and taught us a lot.",
+    "image": {
+     "src": "img/rc-plane.jpg",
+     "alt": "Small hand-built model plane on a street at dusk, with a craft-stick frame, an orange propeller on an electric motor and a toy pilot",
+     "pos": "center 62%"
+    }
+   },
+   "page": {
+    "tone": "alt",
+    "eyebrow": "More work",
+    "kicker": "Statics · Freshman year",
+    "title": "Scratch-Built RC Plane",
+    "tagline": "**Our first airplane. Six seconds of flight.** A freshman Statics project that became my first lesson in how aircraft stay balanced.",
+    "blocks": [
+     {
+      "type": "figure",
+      "variant": "lead",
+      "src": "img/rc-plane.jpg",
+      "alt": "Small hand-built model plane on a street at dusk, with a craft-stick frame, an orange propeller on an electric motor and a toy pilot",
+      "caption": "Our scratch-built plane: craft-stick frame, electric motor up front, and a very small pilot.",
+      "pos": "center 62%"
+     },
+     {
+      "type": "story",
+      "specTitle": "",
+      "spec": [],
+      "sections": [
+       {
+        "heading": "The project",
+        "text": "This was our very first project, in freshman-year **Statics**. At that point we were still far from understanding how planes really behave in the air, but that was the point: we used this build to start learning about flight."
+       },
+       {
+        "heading": "Where statics comes in",
+        "text": "Our work was all about **where things go**. We worked out how to arrange the components (motor, battery and electronics) and studied how commercial aircraft arrange the weight of their different components so the whole plane balances.\n\nThe key idea is simple: the plane's **center of gravity** has to sit at the right spot relative to where the wing produces **lift**. Too far back and the nose pitches up; too far forward and it dives."
+       }
+      ]
+     },
+     {
+      "type": "subtitle",
+      "title": "Balance it, then fly it",
+      "tagline": "Slide the battery until the center of gravity lines up with the lift. Then it's time to fly."
+     },
+     {
+      "type": "plane"
+     },
+     {
+      "type": "story",
+      "specTitle": "",
+      "spec": [],
+      "sections": [
+       {
+        "heading": "How it went",
+        "html": "<div class='facts'><div><b>≈ 6 s</b><span>of flight before it crashed</span></div><div><b>Year 1</b><span>our first hands-on look at flight</span></div></div><p class='key'><strong>Short flight, big lesson.</strong> It flew for about six seconds before it crashed, but we learned a lot, and it's where my interest in how aircraft fly really started.</p>"
+       },
+       {
+        "heading": "What I'd change now, and what I learned",
+        "html": "<div class='apps'><div><span class='tag'>Balance</span><h5>Center of gravity</h5><p>Put the CG about <strong>25–30% of the way back along the wing</strong>, a little ahead of where the lift acts, so the plane naturally settles nose-down instead of sitting on a knife edge.</p></div><div><span class='tag'>Lift</span><h5>Wing size</h5><p>Size the wing from the plane's <strong>weight</strong> (wing loading) instead of by eye, so it makes enough lift at a speed we can actually launch it at.</p></div><div><span class='tag'>Control</span><h5>Tail and control surfaces</h5><p>A bigger horizontal tail for <strong>pitch stability</strong>, plus an elevator and rudder sized to correct the flight, not just hope it stays level.</p></div><div><span class='tag'>Testing</span><h5>Test before it flies</h5><p>Hand-glide tests and a balance check first, then powered flight, changing <strong>one thing at a time</strong> so we'd know what fixed what.</p></div></div><p class='key'><strong>Lessons learned:</strong> balance is only the start. A plane also has to be <strong>stable</strong> (it recovers on its own) and <strong>controllable</strong> (you can correct it). Six seconds of flight taught us to design for both, and to test small before testing big.</p>"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "experience": {
+  "title": "Experience",
+  "jobs": [
+   {
+    "when": "Sep 2026 – Present",
+    "title": "Project Engineer Intern",
+    "org": "Tesla · Austin, TX",
+    "bullets": [
+     "Designing <b>powder-containment enclosures</b> and a material ingress/egress transfer airlock for <b>11 production lines</b> with a third-party firm's PE team, evaluating design alternatives against cleanroom requirements.",
+     "Leading networked camera system design for 11 lines (<b>605 cameras</b>): camera selection, network design and installation.",
+     "Managing schedules and design reviews for three capital projects with estimates of up to <b>$1.5M</b>.",
+     "Developing P&IDs in EPLAN Electric P8 to migrate legacy valve manifolds to smart valve terminals: a <b>64-valve, 8-zone</b> centralized pneumatic control system per line covering air preparation, pressure regulation, flow monitoring and safety exhaust."
+    ]
+   },
+   {
+    "when": "Jan 2026 – Present",
+    "title": "Undergraduate Research Assistant",
+    "org": "Environmental Testing of Structures Lab, NMSU · Las Cruces, NM",
+    "bullets": [
+     "Built a Teensy 4.1 flight computer in embedded C++ for a <b>20,000 ft AGL</b> nose cone balloon drop, logging GPS, barometric, IMU and 20 g accelerometer data at 50 Hz and automating burn-wire parachute deployment; <b>succeeded on its first live drop</b>.",
+     "Ran harmonic, random and free vibration tests in Simcenter Testlab on beams and lattice structures, including an <b>additive vs. subtractive</b> metal beam reproducibility study, correlating natural frequencies with FEA modal predictions."
+    ]
+   },
+   {
+    "when": "Jun 2026 – Sep 2026",
+    "title": "Quality Engineering Intern",
+    "org": "Emerson Automation Solutions (Fisher Controls) · Sherman, TX",
+    "bullets": [
+     "Cut hydrotest cycle time by <b>38%</b> and more than doubled first-pass yield by leading a DMAIC study of 10+ polymer sealing materials, combining SolidWorks FEA with physical hydrotest press trials to standardize sealing.",
+     "Designed and built a portable vacuum pretest cart to investigate Vee-Ball HD seal leaks, and developed MATLAB ROC analysis correlating pretest readings with final leak test results to catch non-sealing assemblies early.",
+     "Designed rotational V-cradle and roller-cradle hydrotest fixtures for large flanged control valves to reduce test setup time."
+    ]
+   },
+   {
+    "when": "Jan 2025 – Jul 2025",
+    "title": "Manufacturing Engineer Intern",
+    "org": "Bell Textron · Chihuahua, Mexico",
+    "bullets": [
+     "Served as tooling engineering intern lead, designing and modifying <b>25+</b> custom manufacturing tools in CATIA V5 and coordinating across departments to reduce production cycle times.",
+     "Optimized additive manufacturing by refining part designs and the production workflow, cutting post-processing time <b>23%</b>."
+    ]
+   },
+   {
+    "when": "May 2024 – Aug 2024",
+    "title": "Engineering Intern",
+    "org": "Lone Star Industrial · El Paso, TX",
+    "bullets": [
+     "Programmed and operated CNC mills to <b>±0.01 mm</b> tolerance, applying GD&T to manufacturing drawings.",
+     "Implemented quality control using Keyence measurement systems, raising inspection efficiency <b>15%</b> and reducing rework."
+    ]
+   }
+  ],
+  "intro": "From Mexico to USA, with a few stops.",
+  "resume": {
+   "href": "files/DanielaDominguez_Resume.pdf",
+   "label": "Download my résumé (PDF)"
+  },
+  "html": "<div class='edu'><div class='edu-main'><span class='tag'>Education</span><h4>New Mexico State University</h4><p><strong>B.S. Aerospace Engineering + B.S. Mechanical Engineering</strong>, dual degree · expected Dec 2027</p><p class='edu-sub'>Started with aerospace engineering coursework at Universidad Autónoma de Chihuahua (2022–2025), then transferred.</p></div><div class='edu-side'><span><b>2</b> countries</span><span><b>2</b> degrees</span><span><b>2</b> languages</span></div></div>",
+  "trip": {
+   "title": "My journey",
+   "stops": [
+    {
+     "when": "Where I grew up",
+     "place": "Ciudad Juárez, Chihuahua",
+     "org": "Home, right on the border",
+     "sign": "JUÁREZ",
+     "label": "Hometown",
+     "say": "¡Hola! I grew up here.",
+     "skills": [
+      "Bilingual",
+      "Curiosity"
+     ],
+     "craft": "biplane"
+    },
+    {
+     "when": "2022",
+     "place": "Chihuahua, Chihuahua",
+     "org": "Universidad Autónoma de Chihuahua · aerospace",
+     "sign": "UACH",
+     "label": "UACH",
+     "say": "Engineering, here I come!",
+     "skills": [
+      "Aerospace",
+      "CanSat"
+     ],
+     "craft": "heli"
+    },
+    {
+     "when": "May – Aug 2024",
+     "place": "El Paso, Texas",
+     "org": "Lone Star Industrial · Engineering Intern",
+     "sign": "EL PASO",
+     "label": "Lone Star Industrial",
+     "say": "My first internship!",
+     "skills": [
+      "CNC",
+      "GD&T",
+      "Inspection"
+     ],
+     "craft": "tilt"
+    },
+    {
+     "when": "Jan – Jul 2025",
+     "place": "Chihuahua, Chihuahua",
+     "org": "Bell Textron · Manufacturing Engineer Intern",
+     "sign": "BELL",
+     "label": "Bell Textron",
+     "say": "Tools for helicopters!",
+     "skills": [
+      "CATIA V5",
+      "Tooling",
+      "Lean"
+     ],
+     "craft": "jet"
+    },
+    {
+     "when": "2025 – now",
+     "place": "Las Cruces, New Mexico",
+     "org": "NMSU dual degree · ETS Lab research",
+     "sign": "LAS CRUCES",
+     "label": "NMSU",
+     "say": "Two degrees + flight tests!",
+     "skills": [
+      "Embedded C++",
+      "Flight tests",
+      "Vibration"
+     ],
+     "craft": "fighter"
+    },
+    {
+     "when": "Jun – Sep 2026",
+     "place": "Sherman, Texas",
+     "org": "Emerson (Fisher Controls) · Quality Eng. Intern",
+     "sign": "SHERMAN",
+     "label": "Emerson",
+     "say": "−38% hydrotest time!",
+     "skills": [
+      "DMAIC",
+      "FEA",
+      "MATLAB"
+     ],
+     "craft": "rocket"
+    },
+    {
+     "when": "Sep 2026 – now",
+     "place": "Austin, Texas",
+     "org": "Tesla Giga Texas · Project Engineer Intern",
+     "sign": "AUSTIN",
+     "label": "Tesla",
+     "say": "Building at Giga Texas!",
+     "skills": [
+      "P&IDs",
+      "Machine vision",
+      "Capital projects"
+     ]
+    }
+   ]
+  }
+ },
+ "skills": {
+  "title": "Skills",
+  "categories": [
+   {
+    "name": "CAD & analysis",
+    "items": [
+     "SOLIDWORKS (CSWA, 2023)",
+     "CATIA V5",
+     "Siemens NX",
+     "3DEXPERIENCE",
+     "ANSYS",
+     "FEA",
+     "Blender",
+     "Motion studies"
+    ]
+   },
+   {
+    "name": "Test & measurement",
+    "items": [
+     "Modal and vibration testing",
+     "Simcenter Testlab",
+     "Impact hammer testing",
+     "Ultrasonic testing",
+     "Data acquisition",
+     "Flight data logging"
+    ]
+   },
+   {
+    "name": "Programming & electronics",
+    "items": [
+     "Embedded C++ (Arduino / Teensy)",
+     "Python",
+     "MATLAB",
+     "Bluetooth"
+    ]
+   },
+   {
+    "name": "Manufacturing & quality",
+    "items": [
+     "EPLAN Electric P8 (P&IDs)",
+     "GD&T",
+     "DMAIC / Lean",
+     "Additive manufacturing",
+     "CNC"
+    ]
+   }
+  ],
+  "languages": "English and Spanish (native)."
+ },
+ "footer": {
+  "text": "Daniela Dominguez · Las Cruces, NM · Seeking a Summer 2027 internship opportunity"
+ }
+}
